@@ -5,9 +5,9 @@ let silaM4 = 0
 let pole: Array<number> = []
 let variable = 0
 //radio
-radio.setGroup(1)
+radio.setGroup(93)
 radio.setTransmitPower(7)
-radio.setFrequencyBand(0)
+radio.setFrequencyBand(1)
 
 ///
 
@@ -20,11 +20,11 @@ input.onButtonPressed(Button.AB, function () {
 
 
 
-radio.onReceivedString(function (string) {
+radio.onReceivedString(function (recievedString) {
+    basic.showString(recievedString)
+    for (let i = 0; i < recievedString.length - 1; i++) {
 
-    for (let i = 0; i < string.length - 1; i++) {
-
-        variable = string.charCodeAt(i)
+        variable = recievedString.charCodeAt(i)
         pole.push(variable)
         silaM1 = variable
         silaM4 = variable
